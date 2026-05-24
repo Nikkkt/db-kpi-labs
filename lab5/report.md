@@ -100,10 +100,10 @@ RETURN i.id AS item_id, i.name AS name, i.price AS price; //
 
 ### 2. Вартість конкретного Order (Order id = 2)
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (o:Order {id: 2})-[:contains]->(i:Item) //
 RETURN o.id AS order_id, o.date AS date, SUM(i.price) AS total_price; //
-` ` `
+```
 **Результат виконання:**
 
 | order_id | date | total_price |
@@ -112,10 +112,10 @@ RETURN o.id AS order_id, o.date AS date, SUM(i.price) AS total_price; //
 
 ### 3. Всі Orders конкретного Customer (Customer id = 1)
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order) //
 RETURN o.id AS order_id, o.date AS date; //
-` ` `
+```
 **Результат виконання:**
 
 | order_id | date |
@@ -125,10 +125,10 @@ RETURN o.id AS order_id, o.date AS date; //
 
 ### 4. Всі Items куплені конкретним Customer (Customer id = 1)
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN DISTINCT i.id AS item_id, i.name AS name, i.price AS price; //
-` ` `
+```
 **Результат виконання:**
 
 | item_id | name | price |
@@ -140,10 +140,10 @@ RETURN DISTINCT i.id AS item_id, i.name AS name, i.price AS price; //
 
 ### 5. Загальна кількість Items куплених Customer id = 1
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN c.name AS customer, COUNT(i) AS total_items; //
-` ` `
+```
 **Результат виконання:**
 
 | customer | total_items |
@@ -152,10 +152,10 @@ RETURN c.name AS customer, COUNT(i) AS total_items; //
 
 ### 6. Загальна сума покупок Customer id = 1
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN c.name AS customer, SUM(i.price) AS total_spent; //
-` ` `
+```
 **Результат виконання:**
 
 | customer | total_spent |
@@ -164,11 +164,11 @@ RETURN c.name AS customer, SUM(i.price) AS total_spent; //
 
 ### 7. Кількість покупок кожного товару (з сортуванням)
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (o:Order)-[:contains]->(i:Item) //
 RETURN i.name AS item_name, COUNT(o) AS purchase_count //
 ORDER BY purchase_count DESC; //
-` ` `
+```
 **Результат виконання:**
 
 | item_name | purchase_count |
@@ -182,10 +182,10 @@ ORDER BY purchase_count DESC; //
 
 ### 8. Всі Items переглянуті Customer id = 1
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:view]->(i:Item) //
 RETURN i.id AS item_id, i.name AS name, i.price AS price; //
-` ` `
+```
 **Результат виконання:**
 
 | item_id | name | price |
@@ -195,11 +195,11 @@ RETURN i.id AS item_id, i.name AS name, i.price AS price; //
 
 ### 9. Items куплені разом з Item id = 2
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (i:Item {id: 2})<-[:contains]-(o:Order)-[:contains]->(other:Item) //
 WHERE other.id <> 2 //
 RETURN DISTINCT other.id AS item_id, other.name AS name, other.price AS price; //
-` ` `
+```
 **Результат виконання:**
 
 | item_id | name | price |
@@ -209,10 +209,10 @@ RETURN DISTINCT other.id AS item_id, other.name AS name, other.price AS price; /
 
 ### 10. Customers що купили Item id = 1
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer)-[:bought]->(o:Order)-[:contains]->(i:Item {id: 1}) //
 RETURN DISTINCT c.id AS customer_id, c.name AS customer_name; //
-` ` `
+```
 **Результат виконання:**
 
 | customer_id | customer_name |
@@ -222,11 +222,11 @@ RETURN DISTINCT c.id AS customer_id, c.name AS customer_name; //
 
 ### 11. Товари переглянуті але не куплені Customer id = 1
 **Запит (Cypher):**
-` ` `cypher
+```cypher
 MATCH (c:Customer {id: 1})-[:view]->(i:Item) //
 WHERE NOT (c)-[:bought]->(:Order)-[:contains]->(i) //
 RETURN i.id AS item_id, i.name AS name, i.price AS price; //
-` ` `
+```
 **Результат виконання:**
 
 | item_id | name | price |
