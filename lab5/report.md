@@ -19,7 +19,7 @@
 ---
 
 ## 3. Наповнення бази даних
-Нижче наведені Cypher-команди для створення вузлів та зв'язків у Neo4j Sandbox / локальній інсталяції:
+Нижче наведені команди для створення вузлів та зв'язків у Neo4j Sandbox:
 
 ```cypher
 // === ОЧИСТКА БАЗИ (при повторному запуску) === //
@@ -86,7 +86,7 @@ CREATE (c1)-[:view]->(i3), //
 ## 4. Запити та результати виконання
 
 ### 1. Items що входять в конкретний Order (Order id = 1)
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (o:Order {id: 1})-[:contains]->(i:Item) //
 RETURN i.id AS item_id, i.name AS name, i.price AS price; //
@@ -99,7 +99,7 @@ RETURN i.id AS item_id, i.name AS name, i.price AS price; //
 | 2 | Механічна клавіатура Keychron K2 | 3200 |
 
 ### 2. Вартість конкретного Order (Order id = 2)
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (o:Order {id: 2})-[:contains]->(i:Item) //
 RETURN o.id AS order_id, o.date AS date, SUM(i.price) AS total_price; //
@@ -111,7 +111,7 @@ RETURN o.id AS order_id, o.date AS date, SUM(i.price) AS total_price; //
 | 2 | 2024-01-15 | 30000 |
 
 ### 3. Всі Orders конкретного Customer (Customer id = 1)
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order) //
 RETURN o.id AS order_id, o.date AS date; //
@@ -124,7 +124,7 @@ RETURN o.id AS order_id, o.date AS date; //
 | 2 | 2024-01-15 |
 
 ### 4. Всі Items куплені конкретним Customer (Customer id = 1)
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN DISTINCT i.id AS item_id, i.name AS name, i.price AS price; //
@@ -139,7 +139,7 @@ RETURN DISTINCT i.id AS item_id, i.name AS name, i.price AS price; //
 | 4 | Навушники Sony WH-1000XM5 | 12000 |
 
 ### 5. Загальна кількість Items куплених Customer id = 1
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN c.name AS customer, COUNT(i) AS total_items; //
@@ -151,7 +151,7 @@ RETURN c.name AS customer, COUNT(i) AS total_items; //
 | Олена Коваленко | 4 |
 
 ### 6. Загальна сума покупок Customer id = 1
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:bought]->(o:Order)-[:contains]->(i:Item) //
 RETURN c.name AS customer, SUM(i.price) AS total_spent; //
@@ -163,7 +163,7 @@ RETURN c.name AS customer, SUM(i.price) AS total_spent; //
 | Олена Коваленко | 78200 |
 
 ### 7. Кількість покупок кожного товару (з сортуванням)
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (o:Order)-[:contains]->(i:Item) //
 RETURN i.name AS item_name, COUNT(o) AS purchase_count //
@@ -181,7 +181,7 @@ ORDER BY purchase_count DESC; //
 | USB-хаб Anker 7-port | 1 |
 
 ### 8. Всі Items переглянуті Customer id = 1
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:view]->(i:Item) //
 RETURN i.id AS item_id, i.name AS name, i.price AS price; //
@@ -194,7 +194,7 @@ RETURN i.id AS item_id, i.name AS name, i.price AS price; //
 | 5 | Веб-камера Logitech C920 | 3500 |
 
 ### 9. Items куплені разом з Item id = 2
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (i:Item {id: 2})<-[:contains]-(o:Order)-[:contains]->(other:Item) //
 WHERE other.id <> 2 //
@@ -208,7 +208,7 @@ RETURN DISTINCT other.id AS item_id, other.name AS name, other.price AS price; /
 | 5 | Веб-камера Logitech C920 | 3500 |
 
 ### 10. Customers що купили Item id = 1
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer)-[:bought]->(o:Order)-[:contains]->(i:Item {id: 1}) //
 RETURN DISTINCT c.id AS customer_id, c.name AS customer_name; //
@@ -221,7 +221,7 @@ RETURN DISTINCT c.id AS customer_id, c.name AS customer_name; //
 | 2 | Микола Шевченко |
 
 ### 11. Товари переглянуті але не куплені Customer id = 1
-**Запит (Cypher):**
+**Запит:**
 ```cypher
 MATCH (c:Customer {id: 1})-[:view]->(i:Item) //
 WHERE NOT (c)-[:bought]->(:Order)-[:contains]->(i) //
