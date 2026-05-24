@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "oFYTXZ+1q2E=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nikit\\Desktop\\Programming\\kpi\\бд\\lab4\\lab4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikit\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\mongodb.bson\\3.8.1\\mongodb.bson.3.8.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\mongodb.driver\\3.8.1\\mongodb.driver.3.8.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\snappier\\1.3.1\\snappier.1.3.1.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'SharpCompress' 0.30.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6c8g-7p36-r338",
+      "projectPath": "C:\\Users\\nikit\\Desktop\\Programming\\kpi\\бд\\lab4\\lab4.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\nikit\\Desktop\\Programming\\kpi\\бд\\lab4\\lab4.csproj",
+      "libraryId": "SharpCompress",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

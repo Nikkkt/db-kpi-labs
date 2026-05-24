@@ -1,0 +1,11 @@
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\bin\Debug\net10.0\lab3.Domain.deps.json
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\bin\Debug\net10.0\lab3.Domain.dll
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\bin\Debug\net10.0\lab3.Domain.pdb
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.AssemblyInfoInputs.cache
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.AssemblyInfo.cs
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.dll
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\refint\lab3.Domain.dll
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\lab3.Domain.pdb
+C:\Users\nikit\Desktop\Programming\kpi\бд\lab3\lab3.Domain\obj\Debug\net10.0\ref\lab3.Domain.dll

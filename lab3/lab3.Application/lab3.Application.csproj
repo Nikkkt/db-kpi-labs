@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lab3.Domain\lab3.Domain.csproj" />
+    <ProjectReference Include="..\lab3.Infrastructure\lab3.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
