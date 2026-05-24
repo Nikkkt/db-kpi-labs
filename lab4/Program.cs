@@ -247,7 +247,7 @@ static async Task Part3_CappedCollection(IMongoDatabase db)
 
     var stored = await reviews.Find(Builders<BsonDocument>.Filter.Empty).ToListAsync();
     Print($"\n20. Capped collection 'reviews' (вставлено 7, збережено {stored.Count} — ліміт 5):");
-    stored.ForEach(r => Console.WriteLine($"   #{r["review_num"]} {r["author"],-18} ⭐{r["rating"]} {r["text"]}"));
+    stored.ForEach(r => Console.WriteLine($"   #{r["review_num"]} {r["author"],-18} {r["rating"]} {r["text"]}"));
 }
 
 static void Print(string msg)
